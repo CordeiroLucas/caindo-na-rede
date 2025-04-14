@@ -6,9 +6,9 @@ using UnityEngine;
 public class BolhaContoller : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float gravityScaleValue = 0.1f;
+    private float gravityScaleValue = 0.1f;
 
-    public GameObject ball;
+    [SerializeField] GameObject ball;
     private Rigidbody2D ballRb;
 
     private Renderer objectRenderer;
