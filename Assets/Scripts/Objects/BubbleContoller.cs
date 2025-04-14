@@ -1,30 +1,53 @@
+using System.Collections;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class BolhaContoller : MonoBehaviour
 {
-    private AudioSource bubbleAudio;
-    [SerializeField] float effectTime = 3f;
+    private Rigidbody2D rb;
+    public float gravityScaleValue = 0.1f;
+
+    public GameObject ball;
+    private Rigidbody2D ballRb;
+
+    private Renderer objectRenderer;
 
     void Start()
     {
-        bubbleAudio = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+        ballRb = ball.GetComponent<Rigidbody2D>();
+
+        objectRenderer = GetComponent<Renderer>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ball"))
+        if (other.name == "Bola")
         {
-            bubbleAudio.Play();
-            Rigidbody2D rb = GameObject.Find("Bola").GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.zero;
-            rb.gravityScale = -0.5f;
-
-            if (Time.time > effectTime)
-            {
-                rb.gravityScale = 1f;
-            }
-            Destroy(this.gameObject);
+            liftBubble();
         }
+        if (other.name == "Cutter")
+        {
+            destroyBubble();
+        }
+    }
+
+    private void destroyBubble()
+    {
+        Debug.Log("Destroy");
+        ballRb.gravityScale = 0.6f;
+        GetComponent<AudioSource>().Play();
+        objectRenderer.enabled = false;
+        Destroy(this);
+    }
+
+    private void liftBubble()
+    {
+        rb.gravityScale = -gravityScaleValue;
+        
+        ballRb.velocity = new Vector2(rb.velocity.x, 0);
+        ballRb.transform.position = transform.position;
+        ballRb.gravityScale = rb.gravityScale;
     }
 }
