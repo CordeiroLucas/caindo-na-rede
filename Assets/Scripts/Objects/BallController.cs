@@ -8,8 +8,8 @@ public class BallController : MonoBehaviour
 {
     Collider2D myCollider;
     GameManager gameManager;
-    [SerializeField] float bubbleEffectTime = 3f;
 
+    private float maxBottonBound = -15;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class BallController : MonoBehaviour
 
     private void outOfBounds()
     {
-        if (transform.position.y < -15)
+        if (transform.position.y < maxBottonBound)
         {
             gameManager.gameOver();
         }
