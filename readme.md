@@ -1,7 +1,8 @@
 # Unity Game
 
 Link para o Jogo:
-itch.io
+[itch.io](https://luxkadev.itch.io/caindonarede)
+
 \
 **Link para API:**
 [Users API](https://67fc1f681f8b41c81685c884.mockapi.io/api/scores/users)
