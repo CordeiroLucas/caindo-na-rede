@@ -17,6 +17,7 @@ public class SceneController : MonoBehaviour
 
     public void StartGame()
     {
+        PlayerPrefs.DeleteAll();
         if(!string.IsNullOrEmpty(playerName.nameInputField.text.Trim())) {
             Debug.Log(PlayerPrefs.GetString("PlayerName"));
             NextLevel();
