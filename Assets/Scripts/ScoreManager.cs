@@ -100,8 +100,12 @@ public class ScoreManager : MonoBehaviour
                 } 
             } catch (System.Exception)
             {
-                textField.text = "Tente Novamente!";
-                Debug.Log("Tente Novamente!");
+                if (textField != null) {
+                    textField.text = "Tente Novamente!";
+                    Debug.Log("Tente Novamente!");
+                } else {
+                    Debug.Log("Não é menu principal");
+                }
             }
         }
         else {
