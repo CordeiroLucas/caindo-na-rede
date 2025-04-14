@@ -5,15 +5,14 @@ public class StarController : MonoBehaviour
 {
     [SerializeField] GameObject destination;
 
+
     private AudioSource audioSource;
     private GameManager gameManager;
-    private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        scoreManager = gameManager.gameObject.GetComponent<ScoreManager>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -27,7 +26,7 @@ public class StarController : MonoBehaviour
             
             audioSource.Play();
             MoveToPosition(destination);
-            scoreManager.addLevelScore(1);
+            gameManager.addSceneScore(1);
             // Debug.Log(gameManager.getSceneScore());
         }
     }
