@@ -5,7 +5,7 @@ public class PlayerNameManager : MonoBehaviour
 {
     public TMP_InputField nameInputField;
 
-    public void SalvarNome()
+    public void SaveName()
     {
         string nome = nameInputField.text.Trim();
 
