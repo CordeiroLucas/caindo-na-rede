@@ -11,7 +11,6 @@ public class SceneController : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         playerName = gameObject.GetComponent<PlayerNameManager>();
         scoreManager = gameObject.GetComponent<ScoreManager>();
     }
