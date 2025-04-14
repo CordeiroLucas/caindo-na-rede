@@ -11,6 +11,7 @@ public class PlayerNameManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(nome))
         {
+            PlayerPrefs.DeleteAll();
             PlayerPrefs.SetString("PlayerName", nome);
             PlayerPrefs.Save();
         }
