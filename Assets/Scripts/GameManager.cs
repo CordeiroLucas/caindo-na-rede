@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
         winScreen.SetActive(false);
         Time.timeScale = 1;
         sceneScore = 0;
+
+        scoreManager.GetRankings();
+        scoreManager.showScore();
     }
 
     // Update is called once per frame

@@ -42,5 +42,6 @@ public class SceneController : MonoBehaviour
     {
         scoreManager.SendScores();
         SceneManager.LoadScene(0);
+        scoreManager.showScore();
     }
 }
