@@ -12,12 +12,14 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         GetRankings();
     }
 
     public void SendScores()
     {
         StartCoroutine(SendRoutine());
+        PlayerPrefs.DeleteAll();
     }
 
     IEnumerator SendRoutine()
