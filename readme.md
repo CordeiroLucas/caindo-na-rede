@@ -1,10 +1,15 @@
 # Unity Game
 
-Link para API:
+Link para o Jogo:
+itch.io
+\
+**Link para API:**
 [Users API](https://67fc1f681f8b41c81685c884.mockapi.io/api/scores/users)
 
-GET Não está tratando o json
+> **GET** Não está tratando o json\
+> **NOME** é salvo por **GAMEPLAY**, ao voltar ao menu se digitar um mesmo nome, irá constar como novo usuário
 
+ 
 ## ***🎮 Project Design Document – Caindo na Rede***
 #### 📕 Resumo do Jogo
 O jogador deve cortar cordas no momento certo para que uma bola de futebol caia diretamente dentro de uma rede. A física do jogo determina o resultado com base no tempo do corte e balanço. Pontuações são registradas em uma API externa para criar um ranking online.\
@@ -15,16 +20,17 @@ O jogador deve cortar cordas no momento certo para que uma bola de futebol caia 
 - Implementar uma API REST para ranking. (Extra)
 #### 🎮 Mecânicas
 - Toque para cortar cordas (input por toque ou clique).
-- Física realista para movimentação da bola (gravidade, colisão).
+- Física para movimentação da bola (gravidade, colisão).
 - Condição de vitória: bola cai na rede.
 - Condição de derrota: bola cai fora da rede.
-- Score: baseado no tempo + sucesso.
+- Score: baseado na coleta de estrelas.
 - Ranking online: via MockAPI.
 #### 📖 Regras do Jogo
 - O jogador pode cortar apenas cordas visíveis.
 - Cada nível tem uma solução única.
 - Reinício rápido após falha.
-- Score é enviado automaticamente ao vencer.
+- Score é por nível é atualizado ao vencer.
+  - Score total é salvo ao voltar ao menu.
   
 #### 🏗️ Estrutura Básica de Cenas
 **MainMenu** – Logo, botão 'Jogar', input nome, botão 'Ranking'\
@@ -34,9 +40,10 @@ O jogador deve cortar cordas no momento certo para que uma bola de futebol caia 
 
 #### 🖼️ Arte e Som
 - Arte: Estilo simples / flat / geométrico (placeholder OK).
-- Objetos principais: Bola (3D leve ou sprite), Cordas (LineRenderer), Rede (área de colisão visível)\
-- Som: Efeitos simples (corte, vitória, derrota), formato .ogg
-Interface (UI)
+- Objetos principais: Bola (sprite), Cordas (sprites com HingeJoint2D), Gol (área de colisão visível)\
+- Som: Efeitos simples (corte, vitória, derrota), formato .ogg\
+  
+#### 📱 Interface (UI)
 - UI adaptável para modo retrato(720x1280).
 - Usar Canvas Scaler com Scale with Screen Size.
 - Botões grandes para toque.
@@ -44,12 +51,15 @@ Interface (UI)
 
 #### 🤖 API de Ranking
 Base URL: [mockapi](https://67fc1f681f8b41c81685c884.mockapi.io/api/scores/users)
-- POST /scores: Envia pontuação
-- GET /scores?sortBy=points&order=desc&limit=5: Top 5
+- POST /users: Envia pontuação
+- GET /users?sortBy=points&order=desc&limit=5: Top 5
 
-Campos:
-- name (string)
-- score (int) \
+**Campos:**
+```csharp
+name (string);
+score (int);
+id (int);
+```
 
 #### Critérios de Aceite
 [] Carregamento em menos de 5 segundos\
