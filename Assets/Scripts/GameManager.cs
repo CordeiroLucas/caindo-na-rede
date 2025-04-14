@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt(SceneBuildNumber, sceneScore);
         PlayerPrefs.Save();
+
+        sceneScore = 0;
     }
 
     public void gameOver()
