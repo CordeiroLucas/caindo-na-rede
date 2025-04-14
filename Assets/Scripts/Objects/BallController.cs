@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class BallController : MonoBehaviour
 {
     Collider2D myCollider;
     GameManager gameManager;
 
-    private float maxBottonBound = -15;
+    private float maxYBound = 15;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +21,7 @@ public class BallController : MonoBehaviour
 
     private void outOfBounds()
     {
-        if (transform.position.y < maxBottonBound)
+        if (transform.position.y < -maxYBound || transform.position.y > maxYBound)
         {
             gameManager.gameOver();
         }
