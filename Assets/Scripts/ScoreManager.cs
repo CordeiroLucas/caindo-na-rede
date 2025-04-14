@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
-using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -9,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     private string url = "https://67fc1f681f8b41c81685c884.mockapi.io/api/scores/users";
+    private string top5_api = "?sortBy=points&order=desc&limit=5";
 
     private int playerScore;
 
@@ -66,7 +64,7 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator GetRankingRoutine()
     {
-        UnityWebRequest request = UnityWebRequest.Get(url);
+        UnityWebRequest request = UnityWebRequest.Get(url + top5_api);
         yield return request.SendWebRequest();
 
         if (request.result == UnityWebRequest.Result.Success)
