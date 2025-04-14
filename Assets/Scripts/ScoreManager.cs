@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     private string url = "https://67fc1f681f8b41c81685c884.mockapi.io/api/scores/users";
-    private string top5_api = "?sortBy=points&order=desc&limit=5";
+    private string top5_api = "?sortBy=score&order=desc";
 
     private int playerScore;
 
@@ -73,7 +73,7 @@ public class ScoreManager : MonoBehaviour
             
 
             // Debug.Log(JsonUtility.FromJson<ArrayList>(jsonResponse));
-            Debug.Log("JSON Response: " + jsonResponse);
+            // Debug.Log("JSON Response: " + jsonResponse);
         }
         else {
             Debug.Log("Erro ao Obter o Ranking");
