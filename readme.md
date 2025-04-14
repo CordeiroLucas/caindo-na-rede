@@ -63,8 +63,8 @@ id (int);
 
 #### Critérios de Aceite
 [] Carregamento em menos de 5 segundos\
-[X] Layout responsivo e em modo retrato\
-[X] Jogabilidade funcional com física 2D\
+[] Layout responsivo e em modo retrato\
+[] Jogabilidade funcional com física 2D\
 [] FPS mínimo de 30 em celular comum\
 [] Jogo sem bugs visíveis ou erros de memória
 [] Ranking online funcional (bonus)\
@@ -77,7 +77,7 @@ Dia 3 – Polimento, responsividade, testes mobile, publicação no WebGL
 
 ## 🎮 Timeline
 
-***Dia 1 (11/04/2025):***\
+***Dia 0 (11/04/2025):***\
 - Planejamento do GameDesign (15:50 - 17:00)
 - Configuração Inicial do Unity (17:00 - 17:50)
 - Implementando Funcionalidades Básicas (18:30 - 19:30)*
@@ -85,14 +85,14 @@ Dia 3 – Polimento, responsividade, testes mobile, publicação no WebGL
   - Mecanica de Estrela
   - Mecanica do Gol
   
-***Dia 2 (12/04/2025):***
+***Dia 1 (12/04/2025):***
 - \* Implementando Funcionalidades Básicas  (08:20 - 13:00) 
 - Mecânica do Corte (alteração de Posição do Mouse  para Apenas ao Clicar)
 - Buscando Sprites para Substituir os Primitivos (14:20 - 15:40)
 - Adicionando Áudio e Interfaces (17:30 - 20:00)
   - Implementado Áudio em Interações * 
   
-***Dia 3 (13/04/2025):***
+***Dia 2 (13/04/2025):***
 - Adicionando Áudio e Interfaces (8:40 - 12:40)
     - Implementado Áudio em Interações * 
 - Adicionando Novos Níveis (13:30 - 16:40)
@@ -101,4 +101,11 @@ Dia 3 – Polimento, responsividade, testes mobile, publicação no WebGL
   - **POST da pontuação ao voltar para o menu inicial
   - GET não está tratado
 - Bolhas Bolhas
+
+***Dia 3 (14/04/2025):***1
+- Implementação API (8:30 - 13:40)
+  - Ela Salva os dados no mockapi
+  - GET é tratado e aparece no menu inicial ao clicar em ranking
+- Pequenos Cleanups do código no meio tempo
+
 
