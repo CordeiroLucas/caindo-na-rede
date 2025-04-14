@@ -11,19 +11,18 @@ public class SceneController : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         playerName = gameObject.GetComponent<PlayerNameManager>();
         scoreManager = gameObject.GetComponent<ScoreManager>();
     }
 
     public void StartGame()
     {
-        PlayerPrefs.DeleteAll();
         if(!string.IsNullOrEmpty(playerName.nameInputField.text.Trim())) {
             Debug.Log(PlayerPrefs.GetString("PlayerName"));
             NextLevel();
         } else {
             playerName.nameInputField.GetComponent<Animator>().SetTrigger("EmptyInput");
-            // Debug.Log("Digite Um Nome");
         }
     }
 
